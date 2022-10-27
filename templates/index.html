@@ -1,1 +1,449 @@
 
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>SER</title>
+      <link rel="icon" href="static/timage.png" type="image/png">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <style>
+         body, html {
+         height: 100%;
+         font-family: Roboto Condensed;
+         overflow: hidden;
+         }
+         .bg-img {
+         background-image: url("static/image.jpg");
+         min-height: 570px;
+         background-position: center;
+         background-repeat: no-repeat;
+         background-size: cover;
+         position: relative;
+         }
+         input[type=file]{
+         background-color:#5e3c57;
+         outline: 10px;
+         color: #ffffff;
+         font-family:"Roboto Condensed";
+         width:350px;
+         font-size: 15px;
+         border-radius: 5px;
+         }
+         .container1 {
+         position: absolute;
+         border-radius: 10px;
+         left:390px;
+         margin: 225px;
+         max-width: 500px;
+         width: 350px;
+         padding: 15px;
+         background-color: white;
+         font-family:Arial;
+         min-height: 15%; 
+         }
+         .container2 {
+         position: absolute;
+         left:390px;
+         border-radius: 10px;
+         margin: 225px;
+         max-width: 500px;
+         width: 350px;
+         padding: 15px;
+         background-color: white;
+         font-family:Arial;
+         min-height: 15%;
+         }
+         .container3{
+         position: absolute;
+         border-radius: 10px;
+         top: 245px;
+         left:635px;
+         max-width: 500px;
+         width: 350px;
+         height: 250px;
+         padding: 15px;
+         background-color: white;
+         font-family:Arial;
+         min-height: 5%;
+         }
+         .container4 {
+         position: absolute;
+         border-radius: 10px;
+         top: 245px;
+         left:635px;
+         max-width: 500px;
+         width: 335px;
+         height: 225px;
+         padding: 15px;
+         background-color: #6b4864;
+         font-family:Roboto Condensed;
+         min-height: 5%;
+         color:white;
+         }
+         .btn, .submitf1 {
+         background-color: #5e3c57;
+         color: #ffffff;
+         padding: 10px 10px;
+         border-radius: 10px;
+         top:100px;
+         left:120px;
+         border: none;
+         cursor: pointer; 
+         width: 100%;
+         opacity: 0.9;
+         font-family:Arial;
+         font-size: 15px;
+         } 
+         .recordst{
+         border-radius: 10px;
+         background-color: #1D8348;
+         color: #ffffff;
+         padding: 6px 6px;
+         border: none;
+         cursor: pointer;
+         width: 100%;
+         opacity: 0.9;
+         font-family:Arial;
+         font-size: 15px;
+         }
+         .recordsp{
+         border-radius: 10px;
+         background-color: #595959;
+         color: #ffffff;
+         padding: 6px 6px;
+         border: none;
+         cursor: pointer;
+         width: 100%;
+         opacity: 0.9;
+         font-family:Arial;
+         margin:-1px; 
+         top:150px;
+         font-size: 15px; 
+         }
+         .btn:hover, .recordsp:hover, .recordst:hoverer {
+         opacity: 20;
+         }
+         #snackbar {
+         visibility: hidden;
+         min-width: 250px;
+         margin-left: 70px;
+         background-color: #CB4335;
+         color: #fff;
+         text-align: center;
+         border-radius: 10px;
+         padding: 15px;
+         position: fixed;
+         z-index: 1;
+         left: 50%;
+         top: 50px;
+         font-size: 15px;
+         }
+         #snackbar2 {
+         visibility: hidden;
+         min-width: 250px;
+         margin-left: 70px;
+         background-color: #28B463;
+         color: #fff;
+         text-align: center;
+         border-radius: 10px;
+         padding: 15px;
+         position: fixed;
+         z-index: 1;
+         left: 50%;
+         top: 45px;
+         font-size: 15px;
+         }
+         #snackbar2.show {
+         visibility: visible;
+         -webkit-animation: fadein 0.5s, fadeout 0.5s 1.7;
+         animation: fadein 0.5s, fadeout 0.5s 1.7s;
+         }
+         #snackbar.show {
+         visibility: visible;
+         -webkit-animation: fadein 0.5s, fadeout 0.5s 3.0s;
+         animation: fadein 0.5s, fadeout 0.5s 3.0s;
+         }
+         .styled-select {
+         border: 3px solid #ffffff;
+         box-sizing: border-box;
+         border-radius: 5px;
+         left:685px;
+         top: 180px;
+         overflow: hidden;
+         position: relative;
+         background: url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0Ljk1IDEwIj48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6I2ZmZjt9LmNscy0ye2ZpbGw6IzQ0NDt9PC9zdHlsZT48L2RlZnM+PHRpdGxlPmFycm93czwvdGl0bGU+PHJlY3QgY2xhc3M9ImNscy0xIiB3aWR0aD0iNC45NSIgaGVpZ2h0PSIxMCIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMiIgcG9pbnRzPSIxLjQxIDQuNjcgMi40OCAzLjE4IDMuNTQgNC42NyAxLjQxIDQuNjciLz48cG9seWdvbiBjbGFzcz0iY2xzLTIiIHBvaW50cz0iMy41NCA1LjMzIDIuNDggNi44MiAxLjQxIDUuMzMgMy41NCA1LjMzIi8+PC9zdmc+) no-repeat 100% 50%;
+         }
+         .styled-select, .styled-select select ,.styled-select option { width: 250px;}
+         select:focus { outline: none; }
+         .styled-select select {
+         height: 35px;
+         padding: 5px 5px 5px 5px;
+         background: transparent;
+         border: 15px;
+         }
+         .styled-select option{
+         height: 2000px;
+         padding: 10px 10px 10px 10px;
+         background: #5e3c57;
+         border: none;
+         }
+         -webkit-appearance: none; 
+         @-moz-document url-prefix(){
+         .styled-select select { width: 75%; }
+         }
+         select::-ms-expand { display: none; } 
+         _:-o-prefocus, .selector {
+         .styled-select { background: black; }
+         }
+         audio::-webkit-media-controls-panel {
+         background-color: #5DADE2;
+         }
+         .downloadLink {
+         padding: 1px 1px 1px 1px;
+         }
+         .rp1{
+         font-size: 12px;  
+         }
+         .middle {
+         top: 90%;
+         left: 67%;
+         transform: translate(-50%, -50%);
+         position: absolute;
+         }
+         .bar {
+         width: 10px;
+         height: 70px;
+         background: #fff;
+         display: inline-block;
+         transform-origin: bottom center;
+         border-top-right-radius: 20px;
+         border-top-left-radius: 20px;
+         /*   box-shadow:5px 10px 20px inset rgba(255,23,25.2); */
+         animation: loader 1.2s linear infinite;
+         }
+         .bar1 {
+         animation-delay: 0.1s;
+         }
+         .bar2 {
+         animation-delay: 0.2s;
+         }
+         .bar3 {
+         animation-delay: 0.3s;
+         }
+         .bar4 {
+         animation-delay: 0.4s;
+         }
+         .bar5 {
+         animation-delay: 0.5s;
+         }
+         .bar6 {
+         animation-delay: 0.6s;
+         }
+         .bar7 {
+         animation-delay: 0.7s;
+         }
+         .bar8 {
+         animation-delay: 0.8s;
+         }
+         @keyframes loader {
+         0% {
+         transform: scaleY(0.1);
+         background: ;
+         }
+         50% {
+         transform: scaleY(1);
+         background: yellowgreen;
+         }
+         100% {
+         transform: scaleY(0.1);
+         background: transparent;
+         }
+         }
+         .container5 {
+         position: absolute;
+         top: 57%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         }
+         table {
+         width: 320px;
+         border-radius: 10px;
+         border-collapse: collapse;
+         overflow: hidden;
+         background-color: white;
+         font-size: 13px;
+         }
+         td {
+         padding: 7px;
+         background-color: black;
+         color: white;
+         border: 1px solid white;
+         }
+         th {
+         padding: 7px;
+         background-color: #5e3c57;
+         color: white;
+         border: 1px solid white;
+         text-align: center;
+         }
+         tbody {
+         td {
+         position: relative;
+         }
+         }
+      </style>
+   </head>
+   <body onload="displayMsg()">
+      <div class="bg-img">
+         <h1 style="color:white ; width:500px; margin:20px; padding: 90px; float: right">Speech Emotion Recognition</h1>
+         <div class="styled-select" id="mySelect">
+            <select style="color:white; " onchange="selectChangeFunction(this);">
+               <option  value="-1" selected><em>Select Option Here</em></option>
+               <option  value="0">1. Upload a File</option>
+               <option  value="1">2. Upload Recording</option>
+            </select>
+         </div>
+         <p class="container4" id="myPElemenet" style="display:none; background:#1B2631"> <strong><em>About: <br></em></strong><br>The website accepts audio file and predicts emotion from the uploaded audio.<br><br>Option1 (File Upload):<br> Choose Audio File >>> click submit for predicitions.<br><br>Option 2 (Record and upload):<br>Record Audio with UI >>> click Submit for predictions. </p>
+         <form id="recordf" action="/success3" method="post" enctype="multipart/form-data" class="container2" style="display:none">
+            <div id="controls" class="div1">
+               <span style="display:flex;">
+                  <button id="recordButton" class="recordst" onclick="myStartFunction()">Start Recording</button>
+                  <p style="color:#FFFFFF"> H </p>
+                  <button id="stopButton" class="recordsp">Stop Recording</button>
+               </span>
+               <p id="recordingsList"></p>
+               <p id="downloadsample" class="downloadLink" style="text-align:center"></p>
+               <br> 
+               <button type="Submit" class="btn" onclick="myStopFunction()"><strong><em>Submit</em></strong></button>
+            </div>
+         </form>
+         <form id="ffile" action="./success1" method="post" enctype="multipart/form-data" class='container1' style="display:none"> 
+          <input type="file" name="file" accept='.mp3,.wav'/> </br> </br> 
+          <button type="Submit" class="btn" onclick="myStopFunction()"><strong><em>Submit</em></strong></button> 
+        </form>
+      </div>
+      <div id="snackbar">Alert!, Audio Recording</div>
+      <div id="snackbar2">Alert!, File Uploaded Successfully<br>Loading Predictions</div>
+      <script>
+         document.getElementById("output").style.display="block";
+      </script>
+      <div class="middle" id="lodingScreen">
+         <div class="bar bar1"></div>
+         <div class="bar bar2"></div>
+         <div class="bar bar3"></div>
+         <div class="bar bar4"></div>
+         <div class="bar bar5"></div>
+         <div class="bar bar6"></div>
+         <div class="bar bar7"></div>
+         <div class="bar bar8"></div>
+      </div>
+      <form class="container3" style="display:{{visibility1}}" onload="outputFunction()" id="output">
+         <p><b>Emotion Prediction From ML Models<br></b></p>
+         <div class="container5">
+            <table>
+               <thead>
+                  <tr>
+                     <th>Model Name</th>
+                     <th>Base</th>
+                     <th>Tuned</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>SVC</td>
+                     <td>{{pred1}}</td>
+                     <td>{{pred2}}</td>
+                  </tr>
+                  <tr>
+                     <td>MLPC</td>
+                     <td>{{pred3}}</td>
+                     <td>{{pred4}}</td>
+                  </tr>
+                  <tr>
+                     <td>KNN</td>
+                     <td>{{pred5}}</td>
+                     <td>{{pred6}}</td>
+                  </tr>
+                  <tr>
+                     <td>DT</td>
+                     <td>{{pred7}}</td>
+                     <td>{{pred8}}</td>
+                  </tr>
+                  <tr>
+                     <td>LR</td>
+                     <td>{{pred9}}</td>
+                     <td>{{pred10}}</td>
+                  </tr>
+                  <tr>
+                     <td>CNN</td>
+                     <td>{{pred11}}</td>
+                     <td>{{pred12}}</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </form>
+      <!-- inserting these scripts at the end to be able to use all the elements in the DOM -->
+      <script>
+         function myStartFunction() {
+           var x = document.getElementById("snackbar");
+           x.className = "show";
+           setTimeout(function(){ x.className = x.className.replace("show", ""); }, 2000);
+           document.getElementById("recordingsList").innerHTML = "";
+           document.getElementById("downloadsample").innerHTML = "";
+         }
+         
+         function myStopFunction() {
+           var x = document.getElementById("snackbar2");
+           x.className = "show";
+           setTimeout(function(){ x.className = x.className.replace("show", ""); }, 5000);
+           document.getElementById("recordingsList").style.display="none";
+           document.getElementById("downloadsample").style.display="none";
+           document.getElementById('lodingScreen').style.display="block";
+         }
+         
+         function selectChangeFunction(objectpass){
+           var y = objectpass.value;
+           if (y == '-1'){
+             document.getElementById('recordf').style.display="none";
+             document.getElementById('ffile').style.display="none";
+             document.getElementById('output').style.display="none";
+             document.getElementById("recordingsList").innerHTML = "";
+             document.getElementById("downloadsample").innerHTML = "";
+             document.getElementById('myPElemenet').style.display="block";
+             document.getElementById('lodingScreen').style.display="none";
+           }
+           if (y == '0'){
+             document.getElementById('recordf').style.display="none";
+             document.getElementById('ffile').style.display="block";
+             document.getElementById('output').style.display="none";
+             document.getElementById('myPElemenet').style.display="none";
+             document.getElementById("recordingsList").innerHTML = "";
+             document.getElementById("downloadsample").innerHTML = "";
+             document.getElementById('lodingScreen').style.display="none";
+           }
+           if (y == '1'){
+             document.getElementById('recordf').style.display="block";
+             document.getElementById('ffile').style.display="none";
+             document.getElementById('output').style.display="none";
+             document.getElementById('myPElemenet').style.display="none";
+             document.getElementById('lodingScreen').style.display="none";
+           }
+         }
+         
+         function outputFunction(){
+           document.getElementById('recordf').style.display="none";
+           document.getElementById('ffile').style.display="none";
+           document.getElementById('myPElemenet').style.display="none";
+           document.getElementById('lodingScreen').style.display="none";        
+         }
+         
+         function displayMsg(){
+           document.getElementById('myPElemenet').style.display="block";
+           document.getElementById('lodingScreen').style.display="none";
+         }
+         
+      </script>
+      <script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>
+      <script src="/static/js/app.js"></script>
+   </body>
+</html>
