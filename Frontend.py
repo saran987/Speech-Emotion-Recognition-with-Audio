@@ -9,7 +9,7 @@ import os
 app = Flask(__name__)
 
 # File upload location
-UPLOAD_FOLDER = 'C:/Users/saisa/Documents/Project/upload'
+UPLOAD_FOLDER = 'Speech-Emotion-Recognition-with-Audio/upload'
 filename = ''
 
 # Configuring Folder to application
@@ -24,7 +24,7 @@ def index():
 
         f1 = request.files['audio_data']
 
-        with open('C:/Users/saisa/Documents/Project/upload/audio_sample.wav', 'wb') as audio:
+        with open('Speech-Emotion-Recognition-with-Audio/upload/audio_sample.wav', 'wb') as audio:
 
             f1.save(audio)
 
