@@ -58,4 +58,5 @@ def success3():
     return render_template("Index.html", visibility1 = "block",  pred1 = a, pred2 = b, pred3 =  c, pred4 = d, pred5 = e, pred6 = f, pred7 = g, pred8 = h, pred9 = i, pred10 = j,  pred11 = k,  pred12 = l,  request="POST")
                 
 if __name__ == "__main__":
+    
     app.run(debug=True)
