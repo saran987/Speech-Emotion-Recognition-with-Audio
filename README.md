@@ -1,5 +1,5 @@
 # Speech-Emotion-Recognition-with-Audio
-ML models predict an emotion by analyzing the audio and with the help of training data.@python@flask@MachineLearning
+ML models predict an emotion by analyzing the audio and with the help of training data.
 
 Audio Dataset:
 https://www.kaggle.com/code/lkergalipatak/speech-emotion-recognition-with-cnn/data 
