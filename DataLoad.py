@@ -3,7 +3,7 @@ import pandas as pd
 #For importing feature extracted data(Processed data)
 def data_Load():
     
-    processed_data_path= r'C:\Users\saisa\Documents\Project\Processed_Data.csv'
+    processed_data_path= r'Speech-Emotion-Recognition-with-Audio/Processed_Data.csv'
 
     df=pd.read_csv(processed_data_path)
 
