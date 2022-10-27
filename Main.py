@@ -120,29 +120,29 @@ def result():
 # Function that predicts the outcome by loading different trained models.
 def output_predictions():
 
-    SVC_model = joblib.load(r'C:\Users\saisa\Documents\Project\models\finalized_SVC_model.sav')
+    SVC_model = joblib.load(r'Speech-Emotion-Recognition-with-Audio/models/finalized_SVC_model.sav')
     
-    SVC_tuned_model = joblib.load(r'C:\Users\saisa\Documents\Project\models\finalized_SVC_tuned_model.sav')
+    SVC_tuned_model = joblib.load(r'Speech-Emotion-Recognition-with-Audio/models/finalized_SVC_tuned_model.sav')
         
-    MLPC_model = joblib.load(r'C:\Users\saisa\Documents\Project\models\finalized_MLPC_model.sav')
+    MLPC_model = joblib.load(r'Speech-Emotion-Recognition-with-Audio/models/finalized_MLPC_model.sav')
     
-    MLPC_tuned_model = joblib.load(r'C:\Users\saisa\Documents\Project\models\finalized_tuned_MLPC_model.sav')
+    MLPC_tuned_model = joblib.load(r'Speech-Emotion-Recognition-with-Audio/models/finalized_tuned_MLPC_model.sav')
 
-    KNN_model = joblib.load(r'C:\Users\saisa\Documents\Project\models\finalized_KNN_model.sav')
+    KNN_model = joblib.load(r'Speech-Emotion-Recognition-with-Audio/models/finalized_KNN_model.sav')
     
-    KNN_tuned_model = joblib.load(r'C:\Users\saisa\Documents\Project\models\finalized_KNN_tuned_model.sav')
+    KNN_tuned_model = joblib.load(r'Speech-Emotion-Recognition-with-Audio/models/finalized_KNN_tuned_model.sav')
       
-    DTC_model = joblib.load(r'C:\Users\saisa\Documents\Project\models\finalized_DTC_model.sav')
+    DTC_model = joblib.load(r'Speech-Emotion-Recognition-with-Audio/models/finalized_DTC_model.sav')
     
-    DTC_tuned_model = joblib.load(r'C:\Users\saisa\Documents\Project\models\finalized_DTC_tuned_model.sav')
+    DTC_tuned_model = joblib.load(r'Speech-Emotion-Recognition-with-Audio/models/finalized_DTC_tuned_model.sav')
 
-    LR_model = joblib.load(r'C:\Users\saisa\Documents\Project\models\finalized_LR_model.sav')
+    LR_model = joblib.load(r'Speech-Emotion-Recognition-with-Audio/models/finalized_LR_model.sav')
     
-    LR_tuned_model = joblib.load(r'C:\Users\saisa\Documents\Project\models\finalized_LR_tuned_model.sav')
+    LR_tuned_model = joblib.load(r'Speech-Emotion-Recognition-with-Audio/models/finalized_LR_tuned_model.sav')
           
-    CNN_model = tf.keras.models.load_model(r'C:\Users\saisa\Documents\Project\models\finalized_CNN_model.h5')
+    CNN_model = tf.keras.models.load_model(r'Speech-Emotion-Recognition-with-Audio/models/finalized_CNN_model.h5')
     
-    CNN_tuned_model = tf.keras.models.load_model(r'C:\Users\saisa\Documents\Project\models\finalized_CNN_tuned_model.h5')
+    CNN_tuned_model = tf.keras.models.load_model(r'Speech-Emotion-Recognition-with-Audio/models/finalized_CNN_tuned_model.h5')
         
     X1 = result()
     
