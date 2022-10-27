@@ -114,11 +114,11 @@ cnn_model_tuned.compile(optimizer='adamax',loss='categorical_crossentropy',metri
 # Fiting and Saving CNN models.
 history1=cnn_model.fit(X_train, y_train, epochs=EPOCH, validation_data=(X_val,y_val), batch_size=BATCH_SIZE,callbacks=[early_stop,lr_reduction])
 
-cnn_model.save(r'C:\Users\saisa\Documents\Project\models\finalized_CNN_model.h5')
+cnn_model.save(r'Speech-Emotion-Recognition-with-Audio/models/finalized_CNN_model.h5')
 
 history2=cnn_model_tuned.fit(X_train, y_train, epochs=EPOCH, validation_data=(X_val,y_val), batch_size=BATCH_SIZE,callbacks=[early_stop,lr_reduction])
 
-cnn_model_tuned.save(r'C:\Users\saisa\Documents\Project\models\finalized_CNN_tuned_model.h5')
+cnn_model_tuned.save(r'Speech-Emotion-Recognition-with-Audio/models/finalized_CNN_tuned_model.h5')
 
 # Saving the CNN models trained history.
 hist1_df = pd.DataFrame(history1.history) 
@@ -126,13 +126,13 @@ hist1_df = pd.DataFrame(history1.history)
 hist2_df = pd.DataFrame(history2.history)  
 
 # Converting models history to .CSV files.
-hist1_csv_file = r'C:\Users\saisa\Documents\Project\CNN Models Training History\history1.csv'
+hist1_csv_file = r'Speech-Emotion-Recognition-with-Audio/CNN Models Training History/history1.csv'
 
 with open(hist1_csv_file, mode='w') as f1:
     
     hist1_df.to_csv(f1)
     
-hist2_csv_file = r'C:\Users\saisa\Documents\Project\CNN Models Training History\history2.csv'
+hist2_csv_file = r'Speech-Emotion-Recognition-with-Audio/CNN Models Training History/history2.csv'
 
 with open(hist2_csv_file, mode='w') as f2:
     
