@@ -6,7 +6,7 @@ import os
 import pandas as pd
 import numpy as np
 
-# Machine Learning models 
+# Machine Learning models family: Classifiers
 from sklearn.svm import SVC
 from sklearn.neural_network import MLPClassifier
 from sklearn.neighbors import KNeighborsClassifier
@@ -37,6 +37,7 @@ scaler=StandardScaler()
 X_train=scaler.fit_transform(X_train)
 
 X_test=scaler.transform(X_test)
+#---------------------- ML Models base & tuned versions ---------
 
 #----------------------- SVC Clasifier --------------------------
 
@@ -73,80 +74,62 @@ model5_1 = LogisticRegression(penalty='elasticnet', C=0.05, class_weight='balanc
 model1.fit(X_train, y_train)
 
 # Model save path
-filename1 = r'C:\Users\saisa\Documents\Project\models1\finalized_SVC_model.sav'
+filename1 = r'Speech-Emotion-Recognition-with-Audio/models/finalized_SVC_model.sav'
 
 # Saving the model
 joblib.dump(model1, filename1)
 
-print('done')
-
 model1_1.fit(X_train, y_train)
 
-filename2 = r'C:\Users\saisa\Documents\Project\models1\finalized_SVC_tuned_model.sav'
+filename2 = r'Speech-Emotion-Recognition-with-Audio/models/finalized_SVC_tuned_model.sav'
 
 joblib.dump(model1_1, filename2)
 
-print('done')
-
 model2.fit(X_train, y_train)
 
-filename3 = r'C:\Users\saisa\Documents\Project\models1\finalized_MLPC_model.sav'
+filename3 = r'Speech-Emotion-Recognition-with-Audio/models/finalized_MLPC_model.sav'
 
 joblib.dump(model2, filename3)
 
-print('done')
-
 model2_1.fit(X_train, y_train)
 
-filename4 = r'C:\Users\saisa\Documents\Project\models1\finalized_tuned_MLPC_model.sav'
+filename4 = r'Speech-Emotion-Recognition-with-Audio/models/finalized_tuned_MLPC_model.sav'
 
 joblib.dump(model2_1, filename4)
 
-print('done')
-
 model3.fit(X_train, y_train)
 
-filename5 = r'C:\Users\saisa\Documents\Project\models1\finalized_KNN_model.sav'
+filename5 = r'Speech-Emotion-Recognition-with-Audio/models/finalized_KNN_model.sav'
 
 joblib.dump(model3, filename5)
 
-print('done')
-
 model3_1.fit(X_train, y_train)
 
-filename6 = r'C:\Users\saisa\Documents\Project\models1\finalized_KNN_tuned_model.sav'
+filename6 = r'Speech-Emotion-Recognition-with-Audio/models/finalized_KNN_tuned_model.sav'
 
 joblib.dump(model3_1, filename6)
 
-print('done')
-
 model4.fit(X_train, y_train)
 
-filename7 = r'C:\Users\saisa\Documents\Project\models1\finalized_DTC_model.sav'
+filename7 = r'Speech-Emotion-Recognition-with-Audio/models/finalized_DTC_model.sav'
 
 joblib.dump(model4, filename7)
 
-print('done')
-
 model4_1.fit(X_train, y_train)
 
-filename8 = r'C:\Users\saisa\Documents\Project\models1\finalized_DTC_tuned_model.sav'
+filename8 = r'Speech-Emotion-Recognition-with-Audio/models/finalized_DTC_tuned_model.sav'
 
 joblib.dump(model4_1, filename8)
 
-print('done')
-
 model5.fit(X_train, y_train)
 
-filename9 = r'C:\Users\saisa\Documents\Project\models1\finalized_LR_model.sav'
+filename9 = r'Speech-Emotion-Recognition-with-Audio/models/finalized_LR_model.sav'
 
 joblib.dump(model5, filename9)
 
-print('done')
-
 model5_1.fit(X_train, y_train)
 
-filename10 = r'C:\Users\saisa\Documents\Project\models1\finalized_LR_tuned_model.sav'
+filename10 = r'Speech-Emotion-Recognition-with-Audio/models/finalized_LR_tuned_model.sav'
 
 joblib.dump(model5_1, filename10)
 
