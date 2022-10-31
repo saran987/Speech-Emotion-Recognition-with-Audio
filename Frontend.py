@@ -9,7 +9,7 @@ import os
 app = Flask(__name__)
 
 # File upload location
-UPLOAD_FOLDER = 'C:/Users/saisa/Documents/Project/upload'
+UPLOAD_FOLDER = '/upload'
 filename = ''
 
 # Configuring Folder to application
@@ -56,7 +56,7 @@ def success2():
 
     f1 = request.files['audio_data']
 
-    with open('C:/Users/saisa/Documents/Project/upload/audio_sample.wav', 'wb') as audio:
+    with open('/upload/audio_sample.wav', 'wb') as audio:
 
         f1.save(audio)
 
