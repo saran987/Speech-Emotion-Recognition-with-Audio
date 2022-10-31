@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
    <head>
@@ -303,7 +302,8 @@
             </select>
          </div>
          <p class="container4" id="myPElemenet" style="display:none; background:#1B2631"> <strong><em>About: <br></em></strong><br>The website accepts audio file and predicts emotion from the uploaded audio.<br><br>Option1 (File Upload):<br> Choose Audio File >>> click submit for predicitions.<br><br>Option 2 (Record and upload):<br>Record Audio with UI >>> click Submit for predictions. </p>
-         <form id="recordf" action="/success3" method="post" enctype="multipart/form-data" class="container2" style="display:none">
+        
+         <form id="recordf" action="./success3" method="post" enctype="multipart/form-data" class="container2" style="display:none">
             <div id="controls" class="div1">
                <span style="display:flex;">
                   <button id="recordButton" class="recordst" onclick="myStartFunction()">Start Recording</button>
@@ -313,9 +313,11 @@
                <p id="recordingsList"></p>
                <p id="downloadsample" class="downloadLink" style="text-align:center"></p>
                <br> 
-               <button type="Submit" class="btn" onclick="myStopFunction()"><strong><em>Submit</em></strong></button>
+               <button id="rsub" type="Submit" class="btn" onclick="myStopFunction()"><strong><em>Submit</em></strong></button>
             </div>
          </form>
+        
+        
          <form id="ffile" action="./success1" method="post" enctype="multipart/form-data" class='container1' style="display:none"> 
           <input type="file" name="file" accept='.mp3,.wav'/> </br> </br> 
           <button type="Submit" class="btn" onclick="myStopFunction()"><strong><em>Submit</em></strong></button> 
